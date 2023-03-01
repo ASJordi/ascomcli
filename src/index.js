@@ -18,11 +18,7 @@ if (errorChangedFiles ?? errorStagedFiles) {
   process.exit(1);
 }
 
-// text({
-//   message: `Changed files: ${colors.red(changedFiles.length)}, Staged files: ${colors.green(stagedFiles.length)}`
-// });
-
-if (stagedFiles.length === 0 || changedFiles.length > 0) {
+if (stagedFiles.length === 0 && changedFiles.length > 0) {
   const files = await multiselect({
     message: colors.cyan('Selecciona los ficheros que quieres añadir al commit: \n' + `   Changed files: ${colors.red(changedFiles.length)}, Staged files: ${colors.green(stagedFiles.length)}`),
     options: changedFiles.map(file => ({
