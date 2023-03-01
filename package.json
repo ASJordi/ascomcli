@@ -9,9 +9,14 @@
   "main": "index.js",
   "scripts": {
     "co": "ascomcli",
+    "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["CLI", "commit", "git"],
+  "keywords": [
+    "CLI",
+    "commit",
+    "git"
+  ],
   "author": "Jordi Ayala",
   "license": "ISC",
   "eslintConfig": {
@@ -24,6 +29,9 @@
   },
   "devDependencies": {
     "ascomcli": "file://.",
+    "eslint": "^8.35.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
     "standard": "^17.0.0"
   }
 }
