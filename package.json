@@ -1,0 +1,29 @@
+{
+  "name": "ascomcli",
+  "version": "1.0.0",
+  "description": "CLI that helps you to write better commit messages",
+  "type": "module",
+  "bin": {
+    "ascomcli": "./src/bin.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "co": "ascomcli",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["CLI", "commit", "git"],
+  "author": "Jordi Ayala",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "dependencies": {
+    "@bdsqqq/try": "^2.3.1",
+    "@clack/prompts": "0.6.1",
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "ascomcli": "file://.",
+    "standard": "^17.0.0"
+  }
+}
