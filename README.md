@@ -27,6 +27,6 @@ CLI that helps you to write better commit messages
 - Add a commit message using conventional commits and emojis
 - CLI interactive mode
 
-<!-- <div align="center">
-  <img src="./src/images/demo.gif" height="180">
-</div> -->
+<div align="center">
+  <img src="./src/images/demo.gif" height="360">
+</div>
