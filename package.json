@@ -19,9 +19,6 @@
   ],
   "author": "Jordi Ayala",
   "license": "ISC",
-  "eslintConfig": {
-    "extends": "standard"
-  },
   "dependencies": {
     "@bdsqqq/try": "^2.3.1",
     "@clack/prompts": "0.6.1",
@@ -33,7 +30,6 @@
     "ascomcli": "file://.",
     "eslint": "^8.35.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
-    "standard": "^17.0.0"
+    "lint-staged": "^13.1.2"
   }
 }
