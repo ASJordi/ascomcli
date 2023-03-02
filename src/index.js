@@ -119,5 +119,5 @@ if (!shouldContinue) {
 await gitCommit({ commit });
 
 outro(
-  colors.green('✅ Commit creado con éxito. ¡Gracias por usar commcli!')
+  colors.green('✅ Commit creado con éxito.')
 );
