@@ -42,6 +42,31 @@ const commitType = await select({
 
 if (isCancel(commitType)) exitProgram();
 
+const hasScope = await confirm({
+  initialValue: false,
+  message: `${colors.cyan('¿Tiene este commit un Scope?')}`
+});
+
+if (isCancel(hasScope)) exitProgram();
+
+let commitScope;
+
+if (hasScope) {
+  commitScope = await text({
+    message: colors.cyan('Introduce el alcance del commit:'),
+    validate: (value) => {
+      if (value.length === 0) {
+        return colors.red('El alcance no puede estar vacío');
+      }
+      if (value.length > 30) {
+        return colors.red('El alcance no puede tener más de 30 caracteres');
+      }
+    }
+  });
+}
+
+if (isCancel(commitScope)) exitProgram();
+
 const commitMessage = await text({
   message: colors.cyan('Introduce el mensaje del commit:'),
   validate: (value) => {
@@ -69,7 +94,12 @@ if (release) {
   if (isCancel(breakingChange)) exitProgram();
 }
 
-let commit = `${commitType}: ${emoji} ${commitMessage}`;
+let commit = commitType;
+
+commit = commitScope ? `${commit} (${commitScope})` : commit;
+
+commit += `: ${emoji} ${commitMessage}`;
+
 commit = breakingChange ? `${commit} [breaking change]` : commit;
 
 const shouldContinue = await confirm({
