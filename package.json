@@ -1,6 +1,6 @@
 {
   "name": "ascomcli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CLI that helps you to write better commit messages",
   "type": "module",
   "bin": {
