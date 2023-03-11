@@ -4,6 +4,7 @@ import { trytm } from '@bdsqqq/try';
 
 import { exitProgram } from './utils.js';
 import { COMMIT_TYPES } from './commit-types.js';
+import { GITMOJIS_TYPES } from './gitmojis-types.js';
 import { getChangedFiles, getStagedFiles, gitAdd, gitCommit } from './git.js';
 
 intro(
@@ -67,6 +68,16 @@ if (hasScope) {
 
 if (isCancel(commitScope)) exitProgram();
 
+const commitEmoji = await select({
+  message: colors.cyan('Selecciona el emoji del commit:'),
+  options: Object.entries(GITMOJIS_TYPES).map(([key, value]) => ({
+    value: key,
+    label: `${value.emoji.padEnd(10, ' ')} · ${value.description}`
+  }))
+});
+
+if (isCancel(commitEmoji)) exitProgram();
+
 const commitMessage = await text({
   message: colors.cyan('Introduce el mensaje del commit:'),
   validate: (value) => {
@@ -82,7 +93,8 @@ const commitMessage = await text({
 
 if (isCancel(commitMessage)) exitProgram();
 
-const { emoji, release } = COMMIT_TYPES[commitType];
+const { release } = COMMIT_TYPES[commitType];
+const { emoji } = GITMOJIS_TYPES[commitEmoji];
 
 let breakingChange = false;
 if (release) {
